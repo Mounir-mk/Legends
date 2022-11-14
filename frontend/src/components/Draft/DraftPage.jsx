@@ -64,11 +64,37 @@ export default function DraftPage({
 DraftPage.propTypes = {
   draftRound: PropTypes.number.isRequired,
   setDraftRound: PropTypes.func.isRequired,
-  playerOneDeck: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.shape))
-    .isRequired,
+  playerOneDeck: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      powerstats: PropTypes.shape({
+        intelligence: PropTypes.string,
+        strength: PropTypes.string,
+        speed: PropTypes.string,
+        durability: PropTypes.string,
+        power: PropTypes.string,
+        combat: PropTypes.string,
+      }),
+      image: PropTypes.PropTypes.shape({ url: PropTypes.string }),
+    })
+  ).isRequired,
   setPlayerOneDeck: PropTypes.func.isRequired,
-  playerTwoDeck: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.shape))
-    .isRequired,
+  playerTwoDeck: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      powerstats: PropTypes.shape({
+        intelligence: PropTypes.string,
+        strength: PropTypes.string,
+        speed: PropTypes.string,
+        durability: PropTypes.string,
+        power: PropTypes.string,
+        combat: PropTypes.string,
+      }),
+      image: PropTypes.PropTypes.shape({ url: PropTypes.string }),
+    })
+  ).isRequired,
   setPlayerTwoDeck: PropTypes.func.isRequired,
   setActivePage: PropTypes.func.isRequired,
 };

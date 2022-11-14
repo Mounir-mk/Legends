@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "../Global/Card";
-import MiniCard from "../Global/MiniCard";
+import Deck from "../Global/Deck";
 
 export default function PlayersSelection({
   playerOneDeck,
@@ -16,14 +16,7 @@ export default function PlayersSelection({
 }) {
   return (
     <div className="flex flex-col h-screen justify-center items-center">
-      <div className="text-yellow-700 h-[20%] xl:w-1/2">
-        <div className="grid grid-cols-6 h-[90%] w-full overflow-hidden">
-          {playerTwoDeck.map((el) => (
-            <MiniCard dataDeck={el} />
-          ))}
-        </div>
-        <h2 className="text-center h-[10%]">Opponent Deck</h2>
-      </div>
+      <Deck deck={playerTwoDeck} position="top" />
 
       <div className="Container flex items-center w-screen overflow-x-scroll h-full xl:justify-center xl:overflow-hidden gap-6">
         {characters.map((character) => (
@@ -55,75 +48,56 @@ export default function PlayersSelection({
           />
         ))}
       </div>
-      <div className="text-yellow-700 h-[20%] xl:w-1/2">
-        <h2 className="text-center h-[10%]">My deck</h2>
-        <div className="grid grid-cols-6 h-[90%]">
-          {playerOneDeck.map((el) => (
-            <MiniCard dataDeck={el} />
-          ))}
-        </div>
-      </div>
+      <Deck deck={playerOneDeck} position="bot" />
     </div>
   );
 }
 
 PlayersSelection.propTypes = {
   playerOneDeck: PropTypes.arrayOf(
-    PropTypes.objectOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-        name: PropTypes.string,
-        powerstats: PropTypes.objectOf(
-          PropTypes.shape({
-            intelligence: PropTypes.number,
-            strength: PropTypes.number,
-            speed: PropTypes.number,
-            durability: PropTypes.number,
-            power: PropTypes.number,
-            combat: PropTypes.number,
-          })
-        ),
-        image: PropTypes.shape({ url: PropTypes.string }),
-      })
-    )
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      powerstats: PropTypes.shape({
+        intelligence: PropTypes.string,
+        strength: PropTypes.string,
+        speed: PropTypes.string,
+        durability: PropTypes.string,
+        power: PropTypes.string,
+        combat: PropTypes.string,
+      }),
+      image: PropTypes.PropTypes.shape({ url: PropTypes.string }),
+    })
   ).isRequired,
   playerTwoDeck: PropTypes.arrayOf(
-    PropTypes.objectOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-        name: PropTypes.string,
-        powerstats: PropTypes.objectOf(
-          PropTypes.shape({
-            intelligence: PropTypes.number,
-            strength: PropTypes.number,
-            speed: PropTypes.number,
-            durability: PropTypes.number,
-            power: PropTypes.number,
-            combat: PropTypes.number,
-          })
-        ),
-        image: PropTypes.shape({ url: PropTypes.string }),
-      })
-    )
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      powerstats: PropTypes.shape({
+        intelligence: PropTypes.string,
+        strength: PropTypes.string,
+        speed: PropTypes.string,
+        durability: PropTypes.string,
+        power: PropTypes.string,
+        combat: PropTypes.string,
+      }),
+      image: PropTypes.PropTypes.shape({ url: PropTypes.string }),
+    })
   ).isRequired,
   characters: PropTypes.arrayOf(
-    PropTypes.objectOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-        name: PropTypes.string,
-        powerstats: PropTypes.objectOf(
-          PropTypes.shape({
-            intelligence: PropTypes.number,
-            strength: PropTypes.number,
-            speed: PropTypes.number,
-            durability: PropTypes.number,
-            power: PropTypes.number,
-            combat: PropTypes.number,
-          })
-        ),
-        image: PropTypes.shape({ url: PropTypes.string }),
-      })
-    )
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      powerstats: PropTypes.shape({
+        intelligence: PropTypes.string,
+        strength: PropTypes.string,
+        speed: PropTypes.string,
+        durability: PropTypes.string,
+        power: PropTypes.string,
+        combat: PropTypes.string,
+      }),
+      image: PropTypes.PropTypes.shape({ url: PropTypes.string }),
+    })
   ).isRequired,
   setPlayerOneDeck: PropTypes.func.isRequired,
   setPlayerTwoDeck: PropTypes.func.isRequired,

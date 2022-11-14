@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import MiniCard from "../Global/MiniCard";
 import Card from "../Global/Card";
+import Deck from "../Global/Deck";
 import battle from "./battle";
 
 export default function CombatMode({
@@ -45,23 +45,22 @@ export default function CombatMode({
     );
   }
 
+  if (playerOneDeck.length === 0) {
+    if (scorePlayer > scoreComputer) {
+      setWinner("Player1");
+    } else {
+      setWinner("Player2");
+    }
+  }
+
   return (
     <main className="flex flex-col h-screen justify-center items-center">
-      <section className="text-yellow-700 h-[20%] xl:w-1/2">
-        <div className="grid grid-cols-6 h-[90%] w-full">
-          {playerTwoDeck.map((deckCard) => (
-            <MiniCard
-              dataDeck={deckCard}
-              key={deckCard.id}
-              selectCardToPlay={() => {
-                setPlayerTwoCardPicked(deckCard);
-              }}
-              ValidPlayerTwoSelection={validPlayerTwoSelection}
-            />
-          ))}
-        </div>
-        <h2 className="text-center h-[10%]">Opponent Deck</h2>
-      </section>
+      <Deck
+        deck={playerTwoDeck}
+        position="top"
+        setPlayerCardPicked={setPlayerTwoCardPicked}
+        validPlayerSelection={validPlayerTwoSelection}
+      />
       {round === 6 ? (
         <div className="font-xl h-[60%] w-screen text-yellow-800 flex items-center">
           <h1>Winner is {winner}</h1>
@@ -115,21 +114,12 @@ export default function CombatMode({
         </section>
       )}
 
-      <section className="text-yellow-700 h-[20%] xl:w-1/2">
-        <h2 className="text-center h-[10%]">My deck</h2>
-        <div className="grid grid-cols-6 h-[90%]">
-          {playerOneDeck.map((deckCard) => (
-            <MiniCard
-              dataDeck={deckCard}
-              key={deckCard.id}
-              selectCardToPlay={() => {
-                setPlayerOneCardPicked(deckCard);
-              }}
-              ValidPlayerOneSelection={validPlayerOneSelection}
-            />
-          ))}
-        </div>
-      </section>
+      <Deck
+        deck={playerOneDeck}
+        position="bot"
+        setPlayerCardPicked={setPlayerOneCardPicked}
+        validPlayerSelection={validPlayerOneSelection}
+      />
     </main>
   );
 }
@@ -137,36 +127,32 @@ export default function CombatMode({
 CombatMode.propTypes = {
   playerOneDeck: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       name: PropTypes.string,
-      powerstats: PropTypes.objectOf(
-        PropTypes.shape({
-          intelligence: PropTypes.number,
-          strength: PropTypes.number,
-          speed: PropTypes.number,
-          durability: PropTypes.number,
-          power: PropTypes.number,
-          combat: PropTypes.number,
-        })
-      ),
-      image: PropTypes.objectOf(PropTypes.shape({ url: PropTypes.string })),
+      powerstats: PropTypes.shape({
+        intelligence: PropTypes.string,
+        strength: PropTypes.string,
+        speed: PropTypes.string,
+        durability: PropTypes.string,
+        power: PropTypes.string,
+        combat: PropTypes.string,
+      }),
+      image: PropTypes.PropTypes.shape({ url: PropTypes.string }),
     })
   ).isRequired,
   playerTwoDeck: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       name: PropTypes.string,
-      powerstats: PropTypes.objectOf(
-        PropTypes.shape({
-          intelligence: PropTypes.number,
-          strength: PropTypes.number,
-          speed: PropTypes.number,
-          durability: PropTypes.number,
-          power: PropTypes.number,
-          combat: PropTypes.number,
-        })
-      ),
-      image: PropTypes.shape({ url: PropTypes.string }),
+      powerstats: PropTypes.shape({
+        intelligence: PropTypes.string,
+        strength: PropTypes.string,
+        speed: PropTypes.string,
+        durability: PropTypes.string,
+        power: PropTypes.string,
+        combat: PropTypes.string,
+      }),
+      image: PropTypes.PropTypes.shape({ url: PropTypes.string }),
     })
   ).isRequired,
   setPlayerOneDeck: PropTypes.func.isRequired,
