@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.App {
+  background-image: url("./src/assets/bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
