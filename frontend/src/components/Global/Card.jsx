@@ -11,12 +11,14 @@ export default function Card({ character, select }) {
   const {
     name,
     image: { url },
-    powerstats: { intelligence, strength, speed, durability, power, combat },
   } = character;
+  const listStats = Object.entries(character.powerstats);
+  const style =
+    "flex flex-col justify-center items-center shadow-lg bg-black p-0.05 rounded-xl border-red-400 border-solid border-2 w-12 h-16 z-10 -translate-y-1/2";
 
   return (
     <div
-      className="flex justify-center box-content"
+      className="flex justify-center box-content w-52"
       onClick={select}
       onKeyUp={select}
       aria-hidden="true"
@@ -33,42 +35,29 @@ export default function Card({ character, select }) {
           >
             {name}
           </Typography>
-          <Typography className="grid grid-cols-2" textGradient>
-            <div className="flex flex-col justify-center items-center absolute top-[0%] -left-4 shadow-lg bg-black p-0.05 rounded-xl border-red-400 border-solid border-2 w-12 h-16 -translate-y-2/4    ">
-              <div className="text-yellow-600">INT</div>
-              <div className="text-white ">{intelligence}</div>
-            </div>
-            <div className="flex flex-col justify-center items-center absolute top-[38%] -left-4 shadow-lg bg-black p-0.05 rounded-xl border-red-400 border-solid -translate-y-2/4 border-2 w-12 h-16">
-              <div className="text-white ">
-                <div className="text-yellow-600">POW</div>
-                {power}
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center absolute top-[70%] -left-4 shadow-lg bg-black p-0.05 rounded-xl border-red-400 border-solid -translate-y-2/4 border-2 w-12 h-16">
-              <div className="text-white ">
-                <div className="text-yellow-600">DUR</div>
-                {durability}
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-center items-center absolute top-[0%] -right-4 bg-black p-0.05 rounded-xl border-red-400 border-solid border-2  -translate-y-2/4 h-16 w-12">
-              <div className="text-white ">
-                <div className="text-yellow-600">STR</div>
-                {strength}
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center absolute top-[38%] -right-4 bg-black p-0.05 rounded-xl border-red-400 border-solid border-2 -translate-y-2/4 h-16 w-12">
-              <div className="text-white ">
-                <div className="text-yellow-600">SPD</div>
-                {speed}
-              </div>
-            </div>
-            <div className="flex flex-col justify-center items-center absolute top-[70%] -right-4 bg-black p-0.05 rounded-xl border-red-400 border-solid border-2 -translate-y-2/4 h-16 w-12">
-              <div className="text-white ">
-                <div className="text-yellow-600">CBT</div>
-                {combat}
-              </div>
-            </div>
+          <Typography>
+            {listStats.map((stat) => {
+              const statName = stat[0];
+              const statValue = stat[1];
+              const statNameShort = statName.slice(0, 3).toUpperCase();
+              return (
+                <div
+                  className={`
+                  ${style} 
+                  ${statName === "intelligence" && "absolute top-[0%] -left-4"}
+                  ${statName === "power" && "absolute top-[38%] -left-4"}
+                  ${statName === "durability" && "absolute top-[70%] -left-4"}
+                  ${statName === "strength" && "absolute top-[0%] -right-4"}
+                  ${statName === "speed" && "absolute top-[38%] -right-4"}
+                  ${statName === "combat" && "absolute top-[70%] -right-4"}`}
+                >
+                  <div className="text-yellow-600">
+                    {statNameShort === "SPE" ? "SPD" : statNameShort}
+                  </div>
+                  <div className="text-white ">{statValue}</div>
+                </div>
+              );
+            })}
           </Typography>
         </CardBody>
       </MTCard>
