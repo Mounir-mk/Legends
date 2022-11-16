@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import DraftPage from "./components/Draft/DraftPage";
 import HomePage from "./components/Homepage/Homepage";
-import CombatMode from "./components/Combat/CombatMode";
+import CombatPage from "./components/Combat/CombatPage";
 
 export default function App() {
   const [activePage, setActivePage] = useState("homepage");
@@ -27,11 +27,13 @@ export default function App() {
         />
       )}
       {activePage === "combatpage" && (
-        <CombatMode
+        <CombatPage
           playerOneDeck={playerOneDeck}
           setPlayerOneDeck={setPlayerOneDeck}
           playerTwoDeck={playerTwoDeck}
           setPlayerTwoDeck={setPlayerTwoDeck}
+          setActivePage={setActivePage}
+          setDraftRound={setDraftRound}
         />
       )}
     </div>

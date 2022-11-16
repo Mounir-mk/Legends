@@ -1,0 +1,8 @@
+/* animate the card on hover */
+
+.card:hover {
+    transform: scale(1.05);
+    rotate: 5deg;
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+    transition: all 0.3s ease-in-out;
+}

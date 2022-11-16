@@ -1,13 +1,13 @@
 function battle(
   setStat,
-  setScoreComputer,
-  setScorePlayer,
+  setscorePlayertwo,
+  setscorePlayerOne,
   setValidPlayerOneSelection,
   setValidPlayerTwoSelection,
   setPlayerOneCardPicked,
   setPlayerTwoCardPicked,
-  scorePlayer,
-  scoreComputer,
+  scorePlayerOne,
+  scorePlayertwo,
   playerOneCardPicked,
   playerTwoCardPicked
 ) {
@@ -20,12 +20,12 @@ function battle(
         parseInt(playerOneCardPicked.powerstats.intelligence, 10) >
         parseInt(playerTwoCardPicked.powerstats.intelligence, 10)
       ) {
-        setScorePlayer(scorePlayer + 1);
+        setscorePlayerOne(scorePlayerOne + 1);
       } else if (
         parseInt(playerOneCardPicked.powerstats.intelligence, 10) <
         parseInt(playerTwoCardPicked.powerstats.intelligence, 10)
       ) {
-        setScoreComputer(scoreComputer + 1);
+        setscorePlayertwo(scorePlayertwo + 1);
       }
     }, 200);
   }
@@ -36,12 +36,12 @@ function battle(
         parseInt(playerOneCardPicked.powerstats.strength, 10) >
         parseInt(playerTwoCardPicked.powerstats.strength, 10)
       ) {
-        setScorePlayer(scorePlayer + 1);
+        setscorePlayerOne(scorePlayerOne + 1);
       } else if (
         parseInt(playerOneCardPicked.powerstats.strength, 10) <
         parseInt(playerTwoCardPicked.powerstats.strength, 10)
       ) {
-        setScoreComputer(scoreComputer + 1);
+        setscorePlayertwo(scorePlayertwo + 1);
       }
     }, 200);
   }
@@ -52,12 +52,12 @@ function battle(
         parseInt(playerOneCardPicked.powerstats.speed, 10) >
         parseInt(playerTwoCardPicked.powerstats.speed, 10)
       ) {
-        setScorePlayer(scorePlayer + 1);
+        setscorePlayerOne(scorePlayerOne + 1);
       } else if (
         parseInt(playerOneCardPicked.powerstats.speed, 10) <
         parseInt(playerTwoCardPicked.powerstats.speed, 10)
       ) {
-        setScoreComputer(scoreComputer + 1);
+        setscorePlayertwo(scorePlayertwo + 1);
       }
     }, 200);
   }
@@ -68,12 +68,12 @@ function battle(
         parseInt(playerOneCardPicked.powerstats.durability, 10) >
         parseInt(playerTwoCardPicked.powerstats.durability, 10)
       ) {
-        setScorePlayer(scorePlayer + 1);
+        setscorePlayerOne(scorePlayerOne + 1);
       } else if (
         parseInt(playerOneCardPicked.powerstats.durability, 10) <
         parseInt(playerTwoCardPicked.powerstats.durability, 10)
       ) {
-        setScoreComputer(scoreComputer + 1);
+        setscorePlayertwo(scorePlayertwo + 1);
       }
     }, 200);
   }
@@ -84,12 +84,12 @@ function battle(
         parseInt(playerOneCardPicked.powerstats.power, 10) >
         parseInt(playerTwoCardPicked.powerstats.power, 10)
       ) {
-        setScorePlayer(scorePlayer + 1);
+        setscorePlayerOne(scorePlayerOne + 1);
       } else if (
         parseInt(playerOneCardPicked.powerstats.power, 10) <
         parseInt(playerTwoCardPicked.powerstats.power, 10)
       ) {
-        setScoreComputer(scoreComputer + 1);
+        setscorePlayertwo(scorePlayertwo + 1);
       }
     }, 200);
   }
@@ -100,15 +100,15 @@ function battle(
         parseInt(playerOneCardPicked.powerstats.combat, 10) >
         parseInt(playerTwoCardPicked.powerstats.combat, 10)
       ) {
-        setScorePlayer(scorePlayer + 1);
+        setscorePlayerOne(scorePlayerOne + 1);
       } else if (
         parseInt(playerOneCardPicked.powerstats.combat, 10) <
         parseInt(playerTwoCardPicked.powerstats.combat, 10)
       ) {
-        setScoreComputer(scoreComputer + 1);
+        setscorePlayertwo(scorePlayertwo + 1);
       } else {
-        setScoreComputer(scoreComputer + 1);
-        setScorePlayer(scorePlayer + 1);
+        setscorePlayertwo(scorePlayertwo + 1);
+        setscorePlayerOne(scorePlayerOne + 1);
       }
     }, 200);
   }

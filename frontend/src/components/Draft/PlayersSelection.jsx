@@ -12,7 +12,6 @@ export default function PlayersSelection({
   setCharacters,
   draftRound,
   setDraftRound,
-  setValidIds,
 }) {
   return (
     <div className="flex flex-col h-screen justify-center items-center">
@@ -41,7 +40,6 @@ export default function PlayersSelection({
                 setPlayerTwoDeck(addOtherCards);
               }
 
-              setValidIds((oldValues) => oldValues.slice(3));
               setCharacters([]);
               setDraftRound(() => draftRound + 1);
             }}
@@ -104,5 +102,4 @@ PlayersSelection.propTypes = {
   setCharacters: PropTypes.func.isRequired,
   draftRound: PropTypes.number.isRequired,
   setDraftRound: PropTypes.func.isRequired,
-  setValidIds: PropTypes.func.isRequired,
 };

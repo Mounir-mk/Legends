@@ -26,7 +26,7 @@ export default function DraftPage({
   const fetchData = () => {
     const promises = validIds
       .sort(() => Math.random() - 0.5)
-      .slice(0, 3)
+      .splice(0, 3)
       .map((id) =>
         axios.get(`https://www.superheroapi.com/api.php/${API_KEY}/${id}`)
       );
