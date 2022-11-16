@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { cardPropTypes } from "../cardPropTypes";
 
 function MiniCardHover({ dataDeck, position }) {
   const {
@@ -23,22 +24,7 @@ function MiniCardHover({ dataDeck, position }) {
 }
 
 MiniCardHover.propTypes = {
-  dataDeck: PropTypes.arrayOf(
-    PropTypes.objectOf(
-      PropTypes.shape({
-        powerstats: PropTypes.objectOf(
-          PropTypes.shape({
-            intelligence: PropTypes.number,
-            strength: PropTypes.number,
-            speed: PropTypes.number,
-            durability: PropTypes.number,
-            power: PropTypes.number,
-            combat: PropTypes.number,
-          })
-        ),
-      })
-    )
-  ).isRequired,
+  dataDeck: cardPropTypes.isRequired,
   position: PropTypes.string.isRequired,
 };
 

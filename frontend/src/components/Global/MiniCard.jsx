@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import MiniCardHover from "./MiniCardHover";
 import "./MiniCard.css";
+import { cardPropTypes } from "../cardPropTypes";
 
 export default function MiniCard({
   dataDeck,
@@ -34,8 +35,7 @@ export default function MiniCard({
 }
 
 MiniCard.propTypes = {
-  url: PropTypes.string.isRequired,
-  dataDeck: PropTypes.isRequired,
+  dataDeck: cardPropTypes.isRequired,
   selectCardToPlay: PropTypes.func.isRequired,
   validPlayerSelection: PropTypes.bool.isRequired,
   position: PropTypes.string.isRequired,

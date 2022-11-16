@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Card from "../Global/Card";
 import Deck from "../Global/Deck";
+import { cardArrayPropTypes } from "../cardPropTypes";
 
 export default function PlayersSelection({
   playerOneDeck,
@@ -52,51 +53,9 @@ export default function PlayersSelection({
 }
 
 PlayersSelection.propTypes = {
-  playerOneDeck: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      powerstats: PropTypes.shape({
-        intelligence: PropTypes.string,
-        strength: PropTypes.string,
-        speed: PropTypes.string,
-        durability: PropTypes.string,
-        power: PropTypes.string,
-        combat: PropTypes.string,
-      }),
-      image: PropTypes.PropTypes.shape({ url: PropTypes.string }),
-    })
-  ).isRequired,
-  playerTwoDeck: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      powerstats: PropTypes.shape({
-        intelligence: PropTypes.string,
-        strength: PropTypes.string,
-        speed: PropTypes.string,
-        durability: PropTypes.string,
-        power: PropTypes.string,
-        combat: PropTypes.string,
-      }),
-      image: PropTypes.PropTypes.shape({ url: PropTypes.string }),
-    })
-  ).isRequired,
-  characters: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      powerstats: PropTypes.shape({
-        intelligence: PropTypes.string,
-        strength: PropTypes.string,
-        speed: PropTypes.string,
-        durability: PropTypes.string,
-        power: PropTypes.string,
-        combat: PropTypes.string,
-      }),
-      image: PropTypes.PropTypes.shape({ url: PropTypes.string }),
-    })
-  ).isRequired,
+  playerOneDeck: cardArrayPropTypes.isRequired,
+  playerTwoDeck: cardArrayPropTypes.isRequired,
+  characters: cardArrayPropTypes.isRequired,
   setPlayerOneDeck: PropTypes.func.isRequired,
   setPlayerTwoDeck: PropTypes.func.isRequired,
   setCharacters: PropTypes.func.isRequired,

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "../Global/Card";
+import { cardPropTypes } from "../cardPropTypes";
 
 function Player({ score, playerCardPicked, setValidPlayerSelection }) {
   return (
@@ -26,20 +27,7 @@ function Player({ score, playerCardPicked, setValidPlayerSelection }) {
 
 Player.propTypes = {
   score: PropTypes.number.isRequired,
-  playerCardPicked: PropTypes.shape({
-    name: PropTypes.string,
-    powerstats: PropTypes.shape({
-      intelligence: PropTypes.string,
-      strength: PropTypes.string,
-      speed: PropTypes.string,
-      durability: PropTypes.string,
-      power: PropTypes.string,
-      combat: PropTypes.string,
-    }),
-    image: PropTypes.shape({
-      url: PropTypes.string,
-    }),
-  }).isRequired,
+  playerCardPicked: cardPropTypes.isRequired,
   setValidPlayerSelection: PropTypes.func.isRequired,
 };
 

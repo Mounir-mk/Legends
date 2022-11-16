@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MiniCard from "./MiniCard";
+import { cardArrayPropTypes } from "../cardPropTypes";
 
 function Deck({ deck, position, setPlayerCardPicked, validPlayerSelection }) {
   return (
@@ -31,23 +32,7 @@ function Deck({ deck, position, setPlayerCardPicked, validPlayerSelection }) {
 }
 
 Deck.propTypes = {
-  deck: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      powerstats: PropTypes.objectOf(
-        PropTypes.shape({
-          intelligence: PropTypes.number,
-          strength: PropTypes.number,
-          speed: PropTypes.number,
-          durability: PropTypes.number,
-          power: PropTypes.number,
-          combat: PropTypes.number,
-        })
-      ),
-      image: PropTypes.shape({ url: PropTypes.string }),
-    })
-  ).isRequired,
+  deck: cardArrayPropTypes.isRequired,
   position: PropTypes.string.isRequired,
   setPlayerCardPicked: PropTypes.func.isRequired,
   validPlayerSelection: PropTypes.bool.isRequired,

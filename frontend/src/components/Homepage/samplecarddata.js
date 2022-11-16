@@ -1,4 +1,4 @@
-const samplecarddata = {
+const sampleCardData = {
   name: "Batman",
   intelligence: "?",
   strength: "?",
@@ -9,4 +9,4 @@ const samplecarddata = {
   image: "https://www.superherodb.com/pictures2/portraits/10/100/639.jpg",
 };
 
-export default samplecarddata;
+export default sampleCardData;

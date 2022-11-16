@@ -7,6 +7,7 @@ import {
   CardBody,
   Typography,
 } from "@material-tailwind/react";
+import { cardPropTypes } from "../cardPropTypes";
 
 export default function Card({ character, select }) {
   const {
@@ -73,6 +74,6 @@ export default function Card({ character, select }) {
 }
 
 Card.propTypes = {
-  character: PropTypes.objectOf(PropTypes.string).isRequired,
+  character: cardPropTypes.isRequired,
   select: PropTypes.func.isRequired,
 };
