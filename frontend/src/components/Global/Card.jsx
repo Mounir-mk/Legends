@@ -9,14 +9,31 @@ import {
 } from "@material-tailwind/react";
 import { cardPropTypes } from "../cardPropTypes";
 
-export default function Card({ character, select }) {
+export default function Card({
+  character,
+  select,
+  playerStatClicked,
+  setPlayerStatClicked,
+  draftRound,
+}) {
   const {
     name,
     image: { url },
   } = character;
   const listStats = Object.entries(character.powerstats);
+
   const style =
     "flex flex-col justify-center items-center shadow-lg bg-black p-0.05 rounded-xl border-red-400 border-solid border-2 w-12 h-12 z-10 ";
+
+  const styleSelected =
+    "flex flex-col justify-center items-center shadow-lg p-0.05 rounded-xl border-red-400 border-solid border-2 w-12 h-12 z-10 bg-red-400";
+
+  const handleClick = (index) => () => {
+    setPlayerStatClicked((state) => ({
+      ...state, // <-- copy previous state
+      [index]: !state[index], // <-- update value by index key
+    }));
+  };
 
   return (
     <div
@@ -29,14 +46,23 @@ export default function Card({ character, select }) {
         <CardHeader floated={false} className="-m-0">
           <img className="" src={url} alt={name} />
           <Typography>
-            {listStats.map((stat) => {
+            {listStats.map((stat, index) => {
+              let nestedCondition = style;
+              if (!(draftRound < 5)) {
+                nestedCondition = playerStatClicked[index]
+                  ? styleSelected
+                  : style;
+              }
               const statName = stat[0];
               const statValue = stat[1];
               const statNameShort = statName.slice(0, 3).toUpperCase();
               return (
-                <div
+                <button
+                  type="button"
+                  key={statName}
+                  onClick={handleClick(index)}
                   className={`
-                  ${style} 
+                  ${draftRound < 5 ? style : nestedCondition}
                   ${statName === "intelligence" && "absolute top-[0%]"}
                   ${
                     statName === "power" &&
@@ -54,7 +80,7 @@ export default function Card({ character, select }) {
                     {statNameShort === "SPE" ? "SPD" : statNameShort}
                   </div>
                   <div className="text-white ">{statValue}</div>
-                </div>
+                </button>
               );
             })}
           </Typography>
@@ -76,4 +102,7 @@ export default function Card({ character, select }) {
 Card.propTypes = {
   character: cardPropTypes.isRequired,
   select: PropTypes.func.isRequired,
+  playerStatClicked: PropTypes.bool.isRequired,
+  setPlayerStatClicked: PropTypes.func.isRequired,
+  draftRound: PropTypes.number.isRequired,
 };

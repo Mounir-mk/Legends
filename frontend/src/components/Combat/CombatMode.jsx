@@ -21,9 +21,8 @@ function CombatMode({
   const [scorePlayerOne, setscorePlayerOne] = useState(0);
   const [scorePlayerTwo, setscorePlayerTwo] = useState(0);
   const [stat, setStat] = useState(null);
-  // const [round, setRound] = useState(0);
-  // const [playerOneStatClicked, setPlayerOneStatClicked] = useState(false);
-  // const [playerTwoStatClicked, setPlayerTwoStatClicked] = useState(false);
+  const [playerOneStatClicked, setPlayerOneStatClicked] = useState({});
+  const [playerTwoStatClicked, setPlayerTwoStatClicked] = useState({});
 
   if (validPlayerOneSelection === true && validPlayerTwoSelection === true) {
     battle(
@@ -37,10 +36,9 @@ function CombatMode({
       scorePlayerOne,
       scorePlayerTwo,
       playerOneCardPicked,
-      playerTwoCardPicked
-      // setRound,
-      // playerOneStatClicked,
-      // playerTwoStatClicked
+      playerTwoCardPicked,
+      playerOneStatClicked,
+      playerTwoStatClicked
     );
     setPlayerOneDeck(
       playerOneDeck.filter((card) => card.id !== playerOneCardPicked.id)
@@ -77,6 +75,8 @@ function CombatMode({
             score={scorePlayerTwo}
             playerCardPicked={playerTwoCardPicked}
             setValidPlayerSelection={setValidPlayerTwoSelection}
+            setPlayerStatClicked={setPlayerTwoStatClicked}
+            playerStatClicked={playerTwoStatClicked}
           />
           <span className="h-full w-full flex flex-col justify-evenly items-center">
             {" "}
@@ -87,6 +87,8 @@ function CombatMode({
             score={scorePlayerTwo}
             playerCardPicked={playerOneCardPicked}
             setValidPlayerSelection={setValidPlayerOneSelection}
+            setPlayerStatClicked={setPlayerOneStatClicked}
+            playerStatClicked={playerOneStatClicked}
           />
         </div>
       </section>
