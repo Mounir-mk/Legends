@@ -9,8 +9,9 @@ export default function MiniCard({
   selectCardToPlay,
   validPlayerSelection,
   position,
+  showHover,
+  setShowHover,
 }) {
-  const [showHover, setShowHover] = React.useState(false);
   const {
     image: { url },
   } = dataDeck;
@@ -39,4 +40,6 @@ MiniCard.propTypes = {
   selectCardToPlay: PropTypes.func.isRequired,
   validPlayerSelection: PropTypes.bool.isRequired,
   position: PropTypes.string.isRequired,
+  showHover: PropTypes.bool.isRequired,
+  setShowHover: PropTypes.func.isRequired,
 };
