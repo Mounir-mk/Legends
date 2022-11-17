@@ -21,9 +21,6 @@ function CombatMode({
   const [scorePlayerOne, setscorePlayerOne] = useState(0);
   const [scorePlayerTwo, setscorePlayerTwo] = useState(0);
   const [stat, setStat] = useState(null);
-  // const [round, setRound] = useState(0);
-  // const [playerOneStatClicked, setPlayerOneStatClicked] = useState(false);
-  // const [playerTwoStatClicked, setPlayerTwoStatClicked] = useState(false);
 
   if (validPlayerOneSelection === true && validPlayerTwoSelection === true) {
     battle(
@@ -34,13 +31,8 @@ function CombatMode({
       setValidPlayerTwoSelection,
       setPlayerOneCardPicked,
       setPlayerTwoCardPicked,
-      scorePlayerOne,
-      scorePlayerTwo,
       playerOneCardPicked,
       playerTwoCardPicked
-      // setRound,
-      // playerOneStatClicked,
-      // playerTwoStatClicked
     );
     setPlayerOneDeck(
       playerOneDeck.filter((card) => card.id !== playerOneCardPicked.id)
@@ -62,9 +54,6 @@ function CombatMode({
 
   return (
     <main className="flex flex-col h-screen justify-center items-center">
-      <h2 className="absolute bottom-[0%] right-[0%] text-2xl bg-red-600 h-40 z-10 rounded-2xl animate-pulse">
-        Random Stat is : {stat}
-      </h2>
       <Deck
         deck={playerTwoDeck}
         position="top"
@@ -77,16 +66,19 @@ function CombatMode({
             score={scorePlayerTwo}
             playerCardPicked={playerTwoCardPicked}
             setValidPlayerSelection={setValidPlayerTwoSelection}
+            player="Player Two"
           />
           <span className="h-full w-full flex flex-col justify-evenly items-center">
-            {" "}
-            <h1 className="text-yellow-700 text-3xl -rotate-45">VERSUS</h1>
+            <h1 className="text-yellow-700 text-3xl -rotate-45">
+              VERSUS <br /> {stat}
+            </h1>
           </span>
 
           <Player
-            score={scorePlayerTwo}
+            score={scorePlayerOne}
             playerCardPicked={playerOneCardPicked}
             setValidPlayerSelection={setValidPlayerOneSelection}
+            player="Player One"
           />
         </div>
       </section>
