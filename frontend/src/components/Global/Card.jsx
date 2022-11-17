@@ -9,7 +9,7 @@ import {
 } from "@material-tailwind/react";
 import { cardPropTypes } from "../cardPropTypes";
 
-export default function Card({ character, select }) {
+export default function Card({ character, select, cardsTab }) {
   const {
     name,
     image: { url },
@@ -25,7 +25,11 @@ export default function Card({ character, select }) {
       onKeyUp={select}
       aria-hidden="true"
     >
-      <MTCard className="w-48 h-80 bg-black m-4 relatives border-2 border-black border-solid card">
+      <MTCard
+        className={` bg-black m-4 relatives border-2 border-black border-solid ${
+          cardsTab ? "w-30 h-56" : "w-48 h-80 card"
+        }`}
+      >
         <CardHeader floated={false} className="-m-0">
           <img className="" src={url} alt={name} />
           <Typography>
@@ -76,4 +80,5 @@ export default function Card({ character, select }) {
 Card.propTypes = {
   character: cardPropTypes.isRequired,
   select: PropTypes.func.isRequired,
+  cardsTab: PropTypes.bool.isRequired,
 };

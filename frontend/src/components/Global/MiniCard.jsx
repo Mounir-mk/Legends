@@ -40,7 +40,7 @@ export default function MiniCard({
         <button
           type="button"
           className={position === "top" ? buttonTop : buttonBottom}
-          onClick={() => setShowHover((prev) => !prev)}
+          onClick={() => setShowHover(!showHover)}
         >
           <img
             src={position === "top" ? nestedCondTop : nestedCondBottom}
