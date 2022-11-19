@@ -63,18 +63,15 @@ export default function Card({
                   onClick={handleClick(index)}
                   className={`
                   ${draftRound < 5 ? style : nestedCondition}
-                  ${statName === "intelligence" && "absolute top-[0%]"}
-                  ${
-                    statName === "power" &&
-                    "absolute top-[50%] -translate-y-1/2"
-                  }
-                  ${statName === "durability" && "absolute bottom-[0%]"}
-                  ${statName === "strength" && "absolute top-[0%] right-0"}
+                  ${statName === "intelligence" && "absolute top-0"}
+                  ${statName === "power" && "absolute top-1/2 -translate-y-1/2"}
+                  ${statName === "durability" && "absolute bottom-0"}
+                  ${statName === "strength" && "absolute top-0 right-0"}
                   ${
                     statName === "speed" &&
-                    "absolute top-[50%] right-0 -translate-y-1/2"
+                    "absolute top-1/2 right-0 -translate-y-1/2"
                   }
-                  ${statName === "combat" && "absolute bottom-[0%] right-0"}`}
+                  ${statName === "combat" && "absolute bottom-0 right-0"}`}
                 >
                   <div className="text-yellow-600">
                     {statNameShort === "SPE" ? "SPD" : statNameShort}
