@@ -64,12 +64,13 @@ function CombatMode({
         player={player2}
       />
 
-      <section className="h-full flex flex-col justify-between items-center w-full md:grid md:grid-cols-3 overflow-y-auto">
+      <section className="h-full flex flex-col justify-between items-center w-full md:grid md:grid-cols-3 overflow-y-hidden md:w-8/12">
         <Player
           score={scorePlayerTwo}
           playerCardPicked={playerTwoCardPicked}
           setValidPlayerSelection={setValidPlayerTwoSelection}
           player={player2}
+          topLeft
         />
         <span className="h-full w-full flex flex-col justify-evenly items-center">
           <h1 className="text-[#54EB75] text-3xl -rotate-45">

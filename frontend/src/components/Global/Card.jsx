@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./Card.css";
 import { cardPropTypes } from "../cardPropTypes";
 
-export default function Card({ character, select, cardsTab }) {
+export default function Card({ character, select, cardsTab, mobileCombat }) {
   const {
     name,
     image: { url },
@@ -11,6 +11,7 @@ export default function Card({ character, select, cardsTab }) {
   const listStats = Object.entries(character.powerstats);
   const style =
     "flex flex-col justify-center items-center shadow-lg bg-black p-0.05 rounded-xl border-red-400 border-solid border-2 w-12 h-12 z-10 ";
+  console.warn(mobileCombat);
 
   return (
     <button type="button" onClick={select}>
@@ -66,4 +67,5 @@ Card.propTypes = {
   character: cardPropTypes.isRequired,
   select: PropTypes.func.isRequired,
   cardsTab: PropTypes.bool.isRequired,
+  mobileCombat: PropTypes.bool.isRequired,
 };
