@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import MiniCard from "./MiniCard";
 import { cardArrayPropTypes } from "../cardPropTypes";
+import up from "../../assets/up.png";
+import down from "../../assets/down.png";
 
 function Deck({
   deck,
@@ -10,11 +12,18 @@ function Deck({
   validPlayerSelection,
   player,
 }) {
+  const [showStats, setShowStats] = useState(false);
+  const style =
+    "button-style absolute bg-black text-white h-3 w-full flex justify-center items-center rounded-lg w-16 md:display-none";
+  const buttonTop = `${style} bottom-0 left-1/2 transform -translate-x-1/2  `;
+  const buttonBottom = `${style} top-0 left-1/2 transform -translate-x-1/2`;
+  const nestedCondTop = showStats ? up : down;
+  const nestedCondBottom = showStats ? down : up;
   return (
     <div className="text-yellow-700 h-[20%] xl:w-1/2">
       {position === "bot" && (
         <div className="flex justify-center items-end h-[10%] relative w-full gap-4">
-          <h2>{player}</h2>
+          <h2>{`${player}'s Deck`}</h2>
         </div>
       )}
 
@@ -28,11 +37,22 @@ function Deck({
               setPlayerCardPicked(deckCard);
             }}
             validPlayerSelection={validPlayerSelection}
+            showStats={showStats}
           />
         ))}
+        <button
+          type="button"
+          className={position === "top" ? buttonTop : buttonBottom}
+          onClick={() => setShowStats(!showStats)}
+        >
+          <img
+            src={position === "top" ? nestedCondTop : nestedCondBottom}
+            alt=""
+          />
+        </button>
       </div>
       {position === "top" && (
-        <h2 className="flex justify-center items-start h-[10%]">{player}</h2>
+        <h2 className="flex justify-center items-start h-[10%]">{`${player}'s Deck`}</h2>
       )}
     </div>
   );

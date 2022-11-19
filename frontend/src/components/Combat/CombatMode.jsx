@@ -55,7 +55,7 @@ function CombatMode({
   }
 
   return (
-    <main className="flex flex-col h-screen justify-center items-center">
+    <main className="flex flex-col h-screen justify-between items-center">
       <Deck
         deck={playerTwoDeck}
         position="top"
@@ -63,7 +63,7 @@ function CombatMode({
         validPlayerSelection={validPlayerTwoSelection}
         player={player2}
       />
-      <section className="font-xl h-[60%] w-screen text-yellow-800 flex flex-col items-center place-content-center relative">
+      <section className="font-xl w-screen h-full text-yellow-800 flex flex-col items-center place-content-center relative">
         <div className="flex-1 grid grid-cols-3 justify-center items-center">
           <Player
             score={scorePlayerTwo}
