@@ -19,7 +19,12 @@ export default function CombatPage({
   return (
     <div>
       {winner ? (
-        <WinnerPage winner={winner} setActivePage={setActivePage} />
+        <WinnerPage
+          winner={winner}
+          setActivePage={setActivePage}
+          setPlayerOneDeck={setPlayerOneDeck}
+          setPlayerTwoDeck={setPlayerTwoDeck}
+        />
       ) : (
         <CombatMode
           setDraftRound={setDraftRound}

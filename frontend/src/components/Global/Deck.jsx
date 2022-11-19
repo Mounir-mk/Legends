@@ -11,7 +11,9 @@ function Deck({
   position,
   setPlayerCardPicked,
   validPlayerSelection,
+  setPlayerDeck,
   player,
+  setValidPlayerSelection,
 }) {
   const [showStats, setShowStats] = useState(false);
   const style =
@@ -33,7 +35,11 @@ function Deck({
             key={deckCard.id}
             position={position}
             selectCardToPlay={() => {
+              setValidPlayerSelection(!validPlayerSelection);
               setPlayerCardPicked(deckCard);
+              setPlayerDeck((prev) =>
+                prev.filter((card) => card.id !== deckCard.id)
+              );
             }}
             validPlayerSelection={validPlayerSelection}
             showStats={showStats}
@@ -61,12 +67,17 @@ Deck.propTypes = {
   deck: cardArrayPropTypes.isRequired,
   position: PropTypes.string.isRequired,
   setPlayerCardPicked: PropTypes.func,
-  validPlayerSelection: PropTypes.bool.isRequired,
+  validPlayerSelection: PropTypes.bool,
   player: PropTypes.string.isRequired,
+  setValidPlayerSelection: PropTypes.func,
+  setPlayerDeck: PropTypes.func,
 };
 
 Deck.defaultProps = {
-  setPlayerCardPicked: undefined,
+  setPlayerCardPicked: null,
+  validPlayerSelection: false,
+  setValidPlayerSelection: null,
+  setPlayerDeck: null,
 };
 
 export default Deck;

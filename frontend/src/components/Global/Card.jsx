@@ -39,6 +39,7 @@ export default function Card({ character, select, cardsTab, mobileCombat }) {
                 const statNameShort = statName.slice(0, 3).toUpperCase();
                 return (
                   <dt
+                    key={statName}
                     className={`
                   ${style} 
                   ${statName === "intelligence" && "absolute top-[0%]"}
@@ -74,7 +75,13 @@ export default function Card({ character, select, cardsTab, mobileCombat }) {
 
 Card.propTypes = {
   character: cardPropTypes.isRequired,
-  select: PropTypes.func.isRequired,
-  cardsTab: PropTypes.bool.isRequired,
-  mobileCombat: PropTypes.bool.isRequired,
+  select: PropTypes.func,
+  cardsTab: PropTypes.bool,
+  mobileCombat: PropTypes.bool,
+};
+
+Card.defaultProps = {
+  select: null,
+  cardsTab: false,
+  mobileCombat: false,
 };

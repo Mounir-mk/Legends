@@ -36,15 +36,9 @@ function CombatMode({
       playerOneCardPicked,
       playerTwoCardPicked
     );
-    setPlayerOneDeck(
-      playerOneDeck.filter((card) => card.id !== playerOneCardPicked.id)
-    );
-    setPlayerTwoDeck(
-      playerTwoDeck.filter((card) => card.id !== playerTwoCardPicked.id)
-    );
   }
 
-  if (playerOneDeck.length === 0 || playerTwoDeck.length === 0) {
+  if (playerOneDeck.length === 0 && playerTwoDeck.length === 0) {
     if (scorePlayerOne > scorePlayerTwo) {
       setWinner(player1);
     } else if (scorePlayerOne < scorePlayerTwo) {
@@ -61,27 +55,27 @@ function CombatMode({
         position="top"
         setPlayerCardPicked={setPlayerTwoCardPicked}
         validPlayerSelection={validPlayerTwoSelection}
+        setValidPlayerSelection={setValidPlayerTwoSelection}
+        setPlayerDeck={setPlayerTwoDeck}
         player={player2}
       />
 
-      <section className="h-full flex flex-col justify-between items-center w-full md:grid md:grid-cols-3 md:w-10/12 md:justify-center md:items-center">
+      <section className="h-full flex flex-col justify-between items-center w-full md:grid md:grid-cols-3 md:w-1/2 md:justify-center md:items-center">
         <Player
           score={scorePlayerTwo}
           playerCardPicked={playerTwoCardPicked}
-          setValidPlayerSelection={setValidPlayerTwoSelection}
           player={player2}
           topLeft
         />
-        <span className="h-full w-full flex flex-col justify-evenly items-center">
-          <h1 className="text-[#54EB75] text-3xl -rotate-45">
+        <div className="h-full w-full relative">
+          <h1 className="text-[#54EB75] text-xl text-center z-30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:text-3xl">
             VERSUS <br /> {stat}
           </h1>
-        </span>
+        </div>
 
         <Player
           score={scorePlayerOne}
           playerCardPicked={playerOneCardPicked}
-          setValidPlayerSelection={setValidPlayerOneSelection}
           player={player1}
         />
       </section>
@@ -91,7 +85,9 @@ function CombatMode({
         position="bot"
         setPlayerCardPicked={setPlayerOneCardPicked}
         validPlayerSelection={validPlayerOneSelection}
+        setValidPlayerSelection={setValidPlayerOneSelection}
         player={player1}
+        setPlayerDeck={setPlayerOneDeck}
       />
     </main>
   );

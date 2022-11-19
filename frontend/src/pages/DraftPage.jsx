@@ -46,6 +46,7 @@ export default function DraftPage({
   if (draftRound === 5) {
     setActivePage("combatpage");
   }
+
   return isLoading ? (
     <Loader />
   ) : (
