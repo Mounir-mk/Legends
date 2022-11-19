@@ -18,11 +18,11 @@ function Player({
           : "justify-end md:justify-center"
       }`}
     >
-      <article className="flex flex-col justify-center">
+      <article className="flex flex-col justify-center w-1/2">
         <h1 className="text-[#54EB75] text-xl text-center">
           {player} : {score}
         </h1>
-        <section className="text-center w-48 h-80">
+        <section className="text-center w-30 h-44 md:w-48 md:h-80">
           {playerCardPicked !== null && (
             <Card character={playerCardPicked} mobileCombat />
           )}

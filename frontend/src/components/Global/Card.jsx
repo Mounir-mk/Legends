@@ -10,18 +10,27 @@ export default function Card({ character, select, cardsTab, mobileCombat }) {
   } = character;
   const listStats = Object.entries(character.powerstats);
   const style =
-    "flex flex-col justify-center items-center shadow-lg bg-black p-0.05 rounded-xl border-red-400 border-solid border-2 w-12 h-12 z-10 ";
-  console.warn(mobileCombat);
+    "flex flex-col justify-center items-center shadow-lg bg-black p-0.05 rounded-xl border-red-400 border-solid border-2 z-10 w-9 h-9 text-xs md:w-12 md:h-12 md:text-base ";
+  const nestedCondContainer = mobileCombat
+    ? "w-30 h-44 md:w-48 md:h-80 card"
+    : "md:w-48 md:h-80 card";
+  const nestedCondImage = mobileCombat
+    ? "h-32 md:max-w-full md:h-auto"
+    : "md:max-w-full md:h-auto";
 
   return (
     <button type="button" onClick={select}>
       <figure
         className={`flex flex-col bg-clip-border rounded-xl shadow-md bg-black relative border-2 border-black border-solid ${
-          cardsTab ? "w-30 h-56" : "w-48 h-80 card"
+          cardsTab ? "w-30 h-50" : nestedCondContainer
         }`}
       >
         <figcaption className="relative bg-clip-border rounded-xl shadow-lg">
-          <img className={cardsTab && "h-44"} src={url} alt={name} />
+          <img
+            className={cardsTab ? "h-44" : nestedCondImage}
+            src={url}
+            alt={name}
+          />
           <figcaption className="block antialiased font-sans text-base font-light leading-relaxed text-inherit">
             <dl>
               {listStats.map((stat) => {
@@ -55,7 +64,7 @@ export default function Card({ character, select, cardsTab, mobileCombat }) {
             </dl>
           </figcaption>
         </figcaption>
-        <h1 className="block font-sans text-2xl font-semibold leading-snug mb-2 text-[#54EB75] text-center">
+        <h1 className="block font-sans text-base font-semibold leading-snug mb-2 text-[#54EB75] text-center h-12 w-30 md-w-48 md:text-2xl">
           {name}
         </h1>
       </figure>

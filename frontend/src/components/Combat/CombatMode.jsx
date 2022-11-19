@@ -64,7 +64,7 @@ function CombatMode({
         player={player2}
       />
 
-      <section className="h-full flex flex-col justify-between items-center w-full md:grid md:grid-cols-3 overflow-y-hidden md:w-8/12">
+      <section className="h-full flex flex-col justify-between items-center w-full md:grid md:grid-cols-3 md:w-10/12 md:justify-center md:items-center">
         <Player
           score={scorePlayerTwo}
           playerCardPicked={playerTwoCardPicked}
