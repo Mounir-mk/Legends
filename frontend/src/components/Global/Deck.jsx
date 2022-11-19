@@ -20,9 +20,9 @@ function Deck({
   const nestedCondTop = showStats ? up : down;
   const nestedCondBottom = showStats ? down : up;
   return (
-    <div className="text-yellow-700 h-[20%] xl:w-1/2">
+    <div className="h-[20%] xl:w-1/2">
       {position === "bot" && (
-        <div className="flex justify-center items-end h-[10%] relative w-full gap-4">
+        <div className="flex justify-center items-end h-[10%] relative w-full gap-4 text-[#54EB75]">
           <h2>{`${player}'s Deck`}</h2>
         </div>
       )}
@@ -52,7 +52,7 @@ function Deck({
         </button>
       </div>
       {position === "top" && (
-        <h2 className="flex justify-center items-start h-[10%]">{`${player}'s Deck`}</h2>
+        <h2 className="flex justify-center items-start h-[10%] text-[#54EB75]">{`${player}'s Deck`}</h2>
       )}
     </div>
   );

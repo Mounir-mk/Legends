@@ -6,7 +6,7 @@ import { cardPropTypes } from "../cardPropTypes";
 function Player({ score, playerCardPicked, setValidPlayerSelection, player }) {
   return (
     <div>
-      <h1 className="text-yellow-700 text-xl text-center">
+      <h1 className="text-[#54EB75] text-xl text-center">
         {player} : {score}
       </h1>
       <section className="w-48 h-96">

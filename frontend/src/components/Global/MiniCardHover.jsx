@@ -3,12 +3,9 @@ import PropTypes from "prop-types";
 import { cardPropTypes } from "../cardPropTypes";
 
 function MiniCardHover({ dataDeck, position }) {
-  const {
-    powerstats: { intelligence, strength, speed, durability, power, combat },
-  } = dataDeck;
-  const listStats = [intelligence, strength, speed, durability, power, combat];
+  const listStats = Object.entries(dataDeck.powerstats);
   const container =
-    "bg-black z-20 absolute w-full grid grid-cols-2 rounded-lg text-center";
+    "bg-black z-20 absolute w-full grid grid-cols-2 rounded-lg text-center text-[#54EB75]";
   return (
     <div
       className={`
@@ -17,7 +14,7 @@ function MiniCardHover({ dataDeck, position }) {
         ${position === "top" && "top-[110%]"}`}
     >
       {listStats.map((stat) => {
-        return <h3>{stat}</h3>;
+        return <h3>{stat[1]}</h3>;
       })}
     </div>
   );

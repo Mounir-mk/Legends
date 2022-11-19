@@ -63,7 +63,7 @@ function CombatMode({
         validPlayerSelection={validPlayerTwoSelection}
         player={player2}
       />
-      <section className="font-xl w-screen h-full text-yellow-800 flex flex-col items-center place-content-center relative">
+      <section className="font-xl w-screen h-full text-[#54EB75] flex flex-col items-center place-content-center relative">
         <div className="flex-1 grid grid-cols-3 justify-center items-center">
           <Player
             score={scorePlayerTwo}
@@ -72,7 +72,7 @@ function CombatMode({
             player={player2}
           />
           <span className="h-full w-full flex flex-col justify-evenly items-center">
-            <h1 className="text-yellow-700 text-3xl -rotate-45">
+            <h1 className="text-[#54EB75] text-3xl -rotate-45">
               VERSUS <br /> {stat}
             </h1>
           </span>

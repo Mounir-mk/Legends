@@ -7,11 +7,14 @@ function HomePage({ play, player1, setPlayer1, player2, setPlayer2 }) {
     <div className="h-screen w-screen flex flex-col justify-evenly items-center text-yellow-500">
       <h1 className="text-2xl text-white">LEGENDS</h1>
       <Navbar />
-      <section id="bottom-section" className="flex justify-evenly md:w-1/2">
+      <section
+        id="bottom-section"
+        className="flex justify-evenly items-center md:w-1/2"
+      >
         <input
           type="text"
           placeholder="Player 1"
-          className="bg-black rounded-full border border-green-700 text-center text-[#54EB75] w-1/3"
+          className="bg-black rounded-full border border-green-700 text-center text-[#54EB75] w-1/3 h-full"
           value={player1}
           onChange={(event) => setPlayer1(event.target.value)}
         />
@@ -25,7 +28,7 @@ function HomePage({ play, player1, setPlayer1, player2, setPlayer2 }) {
         <input
           type="text"
           placeholder="Player 2"
-          className="bg-black rounded-full border border-green-700 text-center text-[#54EB75] w-1/3"
+          className="bg-black rounded-full border border-green-700 text-center text-[#54EB75] w-1/3 h-full"
           value={player2}
           onChange={(event) => setPlayer2(event.target.value)}
         />
