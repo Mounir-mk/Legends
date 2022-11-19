@@ -16,22 +16,22 @@ export default function MiniCard({
   } = dataDeck;
   return (
     <div className="h-full w-full flex items-center justify-center">
-      <figure
-        className="border-[#54EB75] border-solid border-2 h-auto max-w-[90px] rounded-[10%] relative minicard"
-        onMouseEnter={() => setShowStatsHover((prev) => !prev)}
-        onMouseLeave={() => setShowStatsHover((prev) => !prev)}
+      <button
+        type="button"
+        className="rounded-[10%]"
+        onClick={() => validPlayerSelection === false && selectCardToPlay()}
       >
-        <img
-          className="w-full h-full rounded-[10%]"
-          src={url}
-          alt=""
-          aria-hidden="true"
-          onClick={() => validPlayerSelection === false && selectCardToPlay()}
-        />
-        {(showStats || showStatsHover) && (
-          <MiniCardHover dataDeck={dataDeck} position={position} />
-        )}
-      </figure>
+        <figure
+          className="border-[#54EB75] border-solid border-2 h-auto max-w-[90px] rounded-[10%] relative minicard"
+          onMouseEnter={() => setShowStatsHover((prev) => !prev)}
+          onMouseLeave={() => setShowStatsHover((prev) => !prev)}
+        >
+          <img src={url} className="rounded-[10%]" alt="MiniCard" />
+          {(showStats || showStatsHover) && (
+            <MiniCardHover dataDeck={dataDeck} position={position} />
+          )}
+        </figure>
+      </button>
     </div>
   );
 }
