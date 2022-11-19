@@ -17,10 +17,10 @@ export default function PlayersSelection({
   player2,
 }) {
   return (
-    <div className="flex flex-col h-screen justify-between items-center">
+    <main className="flex flex-col h-screen justify-between items-center">
       <Deck deck={playerTwoDeck} position="top" player={player2} />
 
-      <div className="Container flex items-center w-screen overflow-x-scroll h-full xl:justify-center xl:overflow-hidden gap-6">
+      <section className="Container flex items-center w-screen overflow-x-scroll h-full md:justify-center md:overflow-hidden gap-6">
         {characters.map((character) => (
           <Card
             draftRound={draftRound}
@@ -48,9 +48,9 @@ export default function PlayersSelection({
             }}
           />
         ))}
-      </div>
+      </section>
       <Deck deck={playerOneDeck} position="bot" player={player1} />
-    </div>
+    </main>
   );
 }
 

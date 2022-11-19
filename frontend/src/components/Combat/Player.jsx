@@ -9,7 +9,7 @@ function Player({ score, playerCardPicked, setValidPlayerSelection, player }) {
       <h1 className="text-[#54EB75] text-xl text-center">
         {player} : {score}
       </h1>
-      <section className="flex flex-col justify-center items-center w-48 h-80">
+      <section className="text-center w-48 h-80">
         {playerCardPicked !== null && <Card character={playerCardPicked} />}
       </section>
       <button

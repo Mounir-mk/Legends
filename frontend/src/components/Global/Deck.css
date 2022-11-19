@@ -1,3 +1,8 @@
+.button-style {
+    z-index: 21;
+    opacity: 50%;
+}
+
 @media screen and (min-width: 768px) {
     .button-style {
         display: none;
