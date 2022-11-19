@@ -12,6 +12,8 @@ function CombatMode({
   setPlayerTwoDeck,
   setWinner,
   setDraftRound,
+  player1,
+  player2,
 }) {
   setDraftRound(1);
   const [playerOneCardPicked, setPlayerOneCardPicked] = useState(null);
@@ -44,9 +46,9 @@ function CombatMode({
 
   if (playerOneDeck.length === 0 || playerTwoDeck.length === 0) {
     if (scorePlayerOne > scorePlayerTwo) {
-      setWinner("Player One");
+      setWinner(player1);
     } else if (scorePlayerOne < scorePlayerTwo) {
-      setWinner("Player Two");
+      setWinner(player2);
     } else {
       setWinner("Draw");
     }
@@ -59,6 +61,7 @@ function CombatMode({
         position="top"
         setPlayerCardPicked={setPlayerTwoCardPicked}
         validPlayerSelection={validPlayerTwoSelection}
+        player={player2}
       />
       <section className="font-xl h-[60%] w-screen text-yellow-800 flex flex-col items-center place-content-center relative">
         <div className="flex-1 grid grid-cols-3 justify-center items-center">
@@ -66,7 +69,7 @@ function CombatMode({
             score={scorePlayerTwo}
             playerCardPicked={playerTwoCardPicked}
             setValidPlayerSelection={setValidPlayerTwoSelection}
-            player="Player Two"
+            player={player2}
           />
           <span className="h-full w-full flex flex-col justify-evenly items-center">
             <h1 className="text-yellow-700 text-3xl -rotate-45">
@@ -78,7 +81,7 @@ function CombatMode({
             score={scorePlayerOne}
             playerCardPicked={playerOneCardPicked}
             setValidPlayerSelection={setValidPlayerOneSelection}
-            player="Player One"
+            player={player1}
           />
         </div>
       </section>
@@ -88,6 +91,7 @@ function CombatMode({
         position="bot"
         setPlayerCardPicked={setPlayerOneCardPicked}
         validPlayerSelection={validPlayerOneSelection}
+        player={player1}
       />
     </main>
   );
@@ -100,6 +104,8 @@ CombatMode.propTypes = {
   setPlayerTwoDeck: PropTypes.func.isRequired,
   setWinner: PropTypes.func.isRequired,
   setDraftRound: PropTypes.func.isRequired,
+  player1: PropTypes.string.isRequired,
+  player2: PropTypes.string.isRequired,
 };
 
 export default CombatMode;

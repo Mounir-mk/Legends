@@ -13,10 +13,12 @@ export default function PlayersSelection({
   setCharacters,
   draftRound,
   setDraftRound,
+  player1,
+  player2,
 }) {
   return (
     <div className="flex flex-col h-screen justify-center items-center">
-      <Deck deck={playerTwoDeck} position="top" />
+      <Deck deck={playerTwoDeck} position="top" player={player2} />
 
       <div className="Container flex items-center w-screen overflow-x-scroll h-full xl:justify-center xl:overflow-hidden gap-6">
         {characters.map((character) => (
@@ -47,7 +49,7 @@ export default function PlayersSelection({
           />
         ))}
       </div>
-      <Deck deck={playerOneDeck} position="bot" />
+      <Deck deck={playerOneDeck} position="bot" player={player1} />
     </div>
   );
 }
@@ -61,4 +63,6 @@ PlayersSelection.propTypes = {
   setCharacters: PropTypes.func.isRequired,
   draftRound: PropTypes.number.isRequired,
   setDraftRound: PropTypes.func.isRequired,
+  player1: PropTypes.string.isRequired,
+  player2: PropTypes.string.isRequired,
 };

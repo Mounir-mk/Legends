@@ -1,10 +1,12 @@
 import "./App.css";
 import React, { useState } from "react";
-import DraftPage from "./components/Draft/DraftPage";
-import HomePage from "./components/Homepage/Homepage";
-import CombatPage from "./components/Combat/CombatPage";
+import DraftPage from "./pages/DraftPage";
+import HomePage from "./pages/Homepage";
+import CombatPage from "./pages/CombatPage";
 
 export default function App() {
+  const [player1, setPlayer1] = useState("");
+  const [player2, setPlayer2] = useState("");
   const [activePage, setActivePage] = useState("homepage");
   const [draftRound, setDraftRound] = useState(1);
   const [playerOneDeck, setPlayerOneDeck] = useState([]);
@@ -14,7 +16,15 @@ export default function App() {
   };
   return (
     <div className="App">
-      {activePage === "homepage" && <HomePage play={play} />}
+      {activePage === "homepage" && (
+        <HomePage
+          play={play}
+          player1={player1}
+          player2={player2}
+          setPlayer1={setPlayer1}
+          setPlayer2={setPlayer2}
+        />
+      )}
       {activePage === "draftPage" && (
         <DraftPage
           draftRound={draftRound}
@@ -24,6 +34,8 @@ export default function App() {
           playerTwoDeck={playerTwoDeck}
           setPlayerTwoDeck={setPlayerTwoDeck}
           setActivePage={setActivePage}
+          player1={player1}
+          player2={player2}
         />
       )}
       {activePage === "combatpage" && (
@@ -34,6 +46,8 @@ export default function App() {
           setPlayerTwoDeck={setPlayerTwoDeck}
           setActivePage={setActivePage}
           setDraftRound={setDraftRound}
+          player1={player1}
+          player2={player2}
         />
       )}
     </div>

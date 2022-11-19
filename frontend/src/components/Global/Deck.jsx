@@ -3,12 +3,18 @@ import PropTypes from "prop-types";
 import MiniCard from "./MiniCard";
 import { cardArrayPropTypes } from "../cardPropTypes";
 
-function Deck({ deck, position, setPlayerCardPicked, validPlayerSelection }) {
+function Deck({
+  deck,
+  position,
+  setPlayerCardPicked,
+  validPlayerSelection,
+  player,
+}) {
   return (
     <div className="text-yellow-700 h-[20%] xl:w-1/2">
       {position === "bot" && (
         <div className="flex justify-center items-end h-[10%] relative w-full gap-4">
-          <h2>My deck</h2>
+          <h2>{player}</h2>
         </div>
       )}
 
@@ -26,9 +32,7 @@ function Deck({ deck, position, setPlayerCardPicked, validPlayerSelection }) {
         ))}
       </div>
       {position === "top" && (
-        <h2 className="flex justify-center items-start h-[10%]">
-          Opponent Deck
-        </h2>
+        <h2 className="flex justify-center items-start h-[10%]">{player}</h2>
       )}
     </div>
   );
@@ -37,8 +41,13 @@ function Deck({ deck, position, setPlayerCardPicked, validPlayerSelection }) {
 Deck.propTypes = {
   deck: cardArrayPropTypes.isRequired,
   position: PropTypes.string.isRequired,
-  setPlayerCardPicked: PropTypes.func.isRequired,
+  setPlayerCardPicked: PropTypes.func,
   validPlayerSelection: PropTypes.bool.isRequired,
+  player: PropTypes.string.isRequired,
+};
+
+Deck.defaultProps = {
+  setPlayerCardPicked: undefined,
 };
 
 export default Deck;

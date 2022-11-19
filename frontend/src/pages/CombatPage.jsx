@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import WinnerPage from "./WinnerPage";
-import CombatMode from "./CombatMode";
-import { cardArrayPropTypes } from "../cardPropTypes";
+import CombatMode from "../components/Combat/CombatMode";
+import { cardArrayPropTypes } from "../components/cardPropTypes";
 
 export default function CombatPage({
   playerOneDeck,
@@ -11,6 +11,8 @@ export default function CombatPage({
   setPlayerTwoDeck,
   setActivePage,
   setDraftRound,
+  player1,
+  player2,
 }) {
   const [winner, setWinner] = useState(null);
 
@@ -26,6 +28,8 @@ export default function CombatPage({
           playerTwoDeck={playerTwoDeck}
           setPlayerTwoDeck={setPlayerTwoDeck}
           setWinner={setWinner}
+          player1={player1}
+          player2={player2}
         />
       )}
     </div>
@@ -39,4 +43,6 @@ CombatPage.propTypes = {
   setPlayerTwoDeck: PropTypes.func.isRequired,
   setActivePage: PropTypes.func.isRequired,
   setDraftRound: PropTypes.func.isRequired,
+  player1: PropTypes.string.isRequired,
+  player2: PropTypes.string.isRequired,
 };

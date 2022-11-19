@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import Loader from "./Loader";
-import PlayersSelection from "./PlayersSelection";
-import { cardArrayPropTypes } from "../cardPropTypes";
+import Loader from "../components/Draft/Loader";
+import PlayersSelection from "../components/Draft/PlayersSelection";
+import { cardArrayPropTypes } from "../components/cardPropTypes";
 
 const validIds = [
   644, 720, 306, 491, 165, 156, 267, 542, 405, 370, 284, 601, 309, 522, 731,
@@ -19,6 +19,8 @@ export default function DraftPage({
   playerTwoDeck,
   setPlayerTwoDeck,
   setActivePage,
+  player1,
+  player2,
 }) {
   const [characters, setCharacters] = useState([]);
 
@@ -56,6 +58,8 @@ export default function DraftPage({
       setCharacters={setCharacters}
       draftRound={draftRound}
       setDraftRound={setDraftRound}
+      player1={player1}
+      player2={player2}
     />
   );
 }
@@ -68,4 +72,6 @@ DraftPage.propTypes = {
   playerTwoDeck: cardArrayPropTypes.isRequired,
   setPlayerTwoDeck: PropTypes.func.isRequired,
   setActivePage: PropTypes.func.isRequired,
+  player1: PropTypes.string.isRequired,
+  player2: PropTypes.string.isRequired,
 };
