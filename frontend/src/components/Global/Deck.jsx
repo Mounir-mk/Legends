@@ -17,9 +17,11 @@ function Deck({
 }) {
   const [showStats, setShowStats] = useState(false);
   const style =
-    "button-style absolute bg-green-500 text-white h-3 w-full flex justify-center items-center rounded-lg w-16";
-  const buttonTop = `${style} bottom-0 left-1/2 transform -translate-x-1/2  `;
-  const buttonBottom = `${style} top-0 left-1/2 transform -translate-x-1/2`;
+    deck.length === 0
+      ? "hidden"
+      : "button-style absolute bg-green-500 text-white h-16 flex justify-center items-center rounded-lg w-8";
+  const buttonTop = `${style} top-full right-0`;
+  const buttonBottom = `${style} bottom-full left-4 transform -translate-x-1/2`;
   const nestedCondTop = showStats ? up : down;
   const nestedCondBottom = showStats ? down : up;
   return (
