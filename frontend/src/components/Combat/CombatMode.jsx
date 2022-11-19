@@ -63,27 +63,26 @@ function CombatMode({
         validPlayerSelection={validPlayerTwoSelection}
         player={player2}
       />
-      <section className="font-xl w-screen h-full text-[#54EB75] flex flex-col items-center place-content-center relative">
-        <div className="flex-1 grid grid-cols-3 justify-center items-center">
-          <Player
-            score={scorePlayerTwo}
-            playerCardPicked={playerTwoCardPicked}
-            setValidPlayerSelection={setValidPlayerTwoSelection}
-            player={player2}
-          />
-          <span className="h-full w-full flex flex-col justify-evenly items-center">
-            <h1 className="text-[#54EB75] text-3xl -rotate-45">
-              VERSUS <br /> {stat}
-            </h1>
-          </span>
 
-          <Player
-            score={scorePlayerOne}
-            playerCardPicked={playerOneCardPicked}
-            setValidPlayerSelection={setValidPlayerOneSelection}
-            player={player1}
-          />
-        </div>
+      <section className="h-full flex flex-col justify-between items-center w-full md:grid md:grid-cols-3 overflow-y-auto">
+        <Player
+          score={scorePlayerTwo}
+          playerCardPicked={playerTwoCardPicked}
+          setValidPlayerSelection={setValidPlayerTwoSelection}
+          player={player2}
+        />
+        <span className="h-full w-full flex flex-col justify-evenly items-center">
+          <h1 className="text-[#54EB75] text-3xl -rotate-45">
+            VERSUS <br /> {stat}
+          </h1>
+        </span>
+
+        <Player
+          score={scorePlayerOne}
+          playerCardPicked={playerOneCardPicked}
+          setValidPlayerSelection={setValidPlayerOneSelection}
+          player={player1}
+        />
       </section>
 
       <Deck

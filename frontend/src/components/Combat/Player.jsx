@@ -5,24 +5,20 @@ import { cardPropTypes } from "../cardPropTypes";
 
 function Player({ score, playerCardPicked, setValidPlayerSelection, player }) {
   return (
-    <div>
+    <div className="flex flex-col justify-evenly items-center h-full w-full">
       <h1 className="text-[#54EB75] text-xl text-center">
         {player} : {score}
       </h1>
-      <section className="w-48 h-96">
-        {playerCardPicked !== null && (
-          <div className="flex flex-col justify-center items-center">
-            <Card character={playerCardPicked} />
-            <button
-              type="button"
-              className=" text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 active:bg-green-50 focus:bg-green-500"
-              onClick={() => setValidPlayerSelection(true)}
-            >
-              Valid Selection
-            </button>
-          </div>
-        )}
+      <section className="flex flex-col justify-center items-center w-48 h-80">
+        {playerCardPicked !== null && <Card character={playerCardPicked} />}
       </section>
+      <button
+        type="button"
+        className=" text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 active:bg-green-50 focus:bg-green-500"
+        onClick={() => setValidPlayerSelection(true)}
+      >
+        Valid Selection
+      </button>
     </div>
   );
 }

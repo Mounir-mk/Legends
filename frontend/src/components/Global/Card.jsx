@@ -13,18 +13,14 @@ export default function Card({ character, select, cardsTab }) {
     "flex flex-col justify-center items-center shadow-lg bg-black p-0.05 rounded-xl border-red-400 border-solid border-2 w-12 h-12 z-10 ";
 
   return (
-    <button
-      type="button"
-      className="flex justify-center box-content w-52"
-      onClick={select}
-    >
+    <button type="button" onClick={select}>
       <figure
         className={`flex flex-col bg-clip-border rounded-xl shadow-md bg-black relative border-2 border-black border-solid ${
           cardsTab ? "w-30 h-56" : "w-48 h-80 card"
         }`}
       >
-        <figcaption className="relative bg-clip-border rounded-xl overflow-hidden bg-white text-gray-700 shadow-lg -m-0">
-          <img className="" src={url} alt={name} />
+        <figcaption className="relative bg-clip-border rounded-xl shadow-lg">
+          <img className={cardsTab && "h-44"} src={url} alt={name} />
           <figcaption className="block antialiased font-sans text-base font-light leading-relaxed text-inherit">
             <dl>
               {listStats.map((stat) => {
@@ -58,7 +54,7 @@ export default function Card({ character, select, cardsTab }) {
             </dl>
           </figcaption>
         </figcaption>
-        <h1 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug mb-2 text-[#54EB75] text-center">
+        <h1 className="block font-sans text-2xl font-semibold leading-snug mb-2 text-[#54EB75] text-center">
           {name}
         </h1>
       </figure>

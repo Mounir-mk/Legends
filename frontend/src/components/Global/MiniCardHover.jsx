@@ -14,7 +14,7 @@ function MiniCardHover({ dataDeck, position }) {
         ${position === "top" && "top-[110%]"}`}
     >
       {listStats.map((stat) => {
-        return <h3>{stat[1]}</h3>;
+        return <h3 key={stat[0]}>{stat[1]}</h3>;
       })}
     </div>
   );

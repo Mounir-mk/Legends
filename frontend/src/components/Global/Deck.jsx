@@ -4,6 +4,7 @@ import MiniCard from "./MiniCard";
 import { cardArrayPropTypes } from "../cardPropTypes";
 import up from "../../assets/up.png";
 import down from "../../assets/down.png";
+import "./Deck.css";
 
 function Deck({
   deck,
