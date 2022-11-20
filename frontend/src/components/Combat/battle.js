@@ -6,12 +6,11 @@ function battle(
   setValidPlayerTwoSelection,
   setPlayerOneCardPicked,
   setPlayerTwoCardPicked,
-
   playerOneCardPicked,
   playerTwoCardPicked
 ) {
   const random = Math.floor(Math.random() * 6);
-  const stats = [
+  const statList = [
     "intelligence",
     "strength",
     "speed",
@@ -19,10 +18,16 @@ function battle(
     "power",
     "combat",
   ];
-  const stat = stats[random];
-  setStat(stat);
-  const playerOneStat = parseInt(playerOneCardPicked.powerstats[stat], 10);
-  const playerTwoStat = parseInt(playerTwoCardPicked.powerstats[stat], 10);
+  const statRandom = statList[random];
+  setStat(statRandom);
+  const playerOneStat = parseInt(
+    playerOneCardPicked.powerstats[statRandom],
+    10
+  );
+  const playerTwoStat = parseInt(
+    playerTwoCardPicked.powerstats[statRandom],
+    10
+  );
 
   if (playerOneStat > playerTwoStat) {
     setscorePlayerOne((old) => old + 1);
