@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+// eslint-disable-next-line import/no-unresolved
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import PropTypes from "prop-types";
 import Player from "./Player";
 import Deck from "../Global/Deck";
-// import battle from "./battle";
 import { cardArrayPropTypes } from "../cardPropTypes";
+import versus from "../../assets/versus.png";
 
 function CombatMode({
   playerOneDeck,
@@ -96,10 +97,12 @@ function CombatMode({
           topLeft
         />
         <div className="h-full w-full relative">
-          <h1 className="text-[#54EB75] text-xl text-center z-30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:text-3xl">
-            VERSUS <br />{" "}
-            <p className="animate-pulse text-yellow-500 bg-red-400">{stat}</p>
-          </h1>
+          <div className="text-center z-30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:text-3xl flex flex-col items-center justify-center">
+            <img src={versus} alt="versus" />
+            <p className="rounded-lg animate-pulse text-green-300 bg-green-600 text-lg p-1">
+              {stat}
+            </p>
+          </div>
         </div>
 
         <Player
@@ -135,19 +138,3 @@ CombatMode.propTypes = {
 };
 
 export default CombatMode;
-
-// battle(
-//   setscorePlayerTwo,
-//   setscorePlayerOne,
-//   setValidPlayerOneSelection,
-//   setValidPlayerTwoSelection,
-//   setPlayerOneCardPicked,
-//   setPlayerTwoCardPicked,
-//   playerOneCardPicked,
-//   playerTwoCardPicked,
-//   validPlayerOneSelection,
-//   validPlayerTwoSelection,
-//   stat,
-//   setRound,
-//   round
-// );

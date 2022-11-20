@@ -14,9 +14,15 @@ function WinnerPage({
   };
   return (
     <main className="h-screen flex flex-col items-center text-green-400 justify-around">
-      <h1 className="text-4xl text-center">The winner is</h1>
-      <h2 className="text-6xl text-center animate-ping ">{winner}</h2>
-      <h3 className="text-2xl animate-bounce ">Congratulations !</h3>
+      {winner === "draw" ? (
+        <h1 className="text-6xl">It's a draw!</h1>
+      ) : (
+        <>
+          <h1 className="text-4xl text-center">The winner is</h1>
+          <h2 className="text-6xl text-center animate-ping ">{winner}</h2>
+          <h3 className="text-2xl animate-bounce ">Congratulations !</h3>
+        </>
+      )}
       <div className="flex items-center justify-center">
         <button
           type="button"

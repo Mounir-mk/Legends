@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+// eslint-disable-next-line import/no-unresolved
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import MiniCard from "./MiniCard";
 import { cardArrayPropTypes } from "../cardPropTypes";
@@ -23,7 +24,7 @@ function Deck({
       ? "hidden"
       : "button-style absolute bg-green-500 text-white h-16 flex justify-center items-center rounded-lg w-8";
   const buttonTop = `${style} top-full right-0`;
-  const buttonBottom = `${style} bottom-full left-0 transform -translate-x-1/2`;
+  const buttonBottom = `${style} bottom-full left-4 transform -translate-x-1/2`;
   const nestedCondTop = showStats ? up : down;
   const nestedCondBottom = showStats ? down : up;
   return (
