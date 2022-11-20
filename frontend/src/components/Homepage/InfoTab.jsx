@@ -3,13 +3,18 @@ import React from "react";
 function InfoTab() {
   return (
     <>
-      <h3 className="w-screen text-center text-[#54EB75]">
+      <h3 className="w-screen text-center text-[#54EB75] h-1/6">
         {"info".toUpperCase()}
       </h3>
-      <p className="w-2/3 text-center text-white">
-        There are many variations of passages of Lorem Ipsum available, but the
-        majority have suffered alteration in some form, by injected humour, or
-      </p>
+
+      <iframe
+        className="max-w-full"
+        src="https://www.youtube.com/embed/hOT3Gw3hbwg"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
     </>
   );
 }

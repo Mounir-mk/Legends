@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// eslint-disable-next-line import/no-unresolved
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import CardsTab from "./CardsTab";
 import RulesTab from "./RulesTab";

@@ -6,6 +6,7 @@ import Player from "./Player";
 import Deck from "../Global/Deck";
 import { cardArrayPropTypes } from "../cardPropTypes";
 import versus from "../../assets/versus.png";
+import battle from "./battle";
 
 function CombatMode({
   playerOneDeck,
@@ -43,30 +44,31 @@ function CombatMode({
 
   useEffect(() => {
     randomStat();
-    if (validPlayerOneSelection === true && validPlayerTwoSelection === true) {
-      const playerOneStat = parseInt(playerOneCardPicked.powerstats[stat], 10);
-      const playerTwoStat = parseInt(playerTwoCardPicked.powerstats[stat], 10);
-      if (playerOneStat > playerTwoStat) {
-        setscorePlayerOne((old) => old + 1);
-      } else if (playerOneStat < playerTwoStat) {
-        setscorePlayerTwo((old) => old + 1);
-      }
-
-      setPlayerOneCardPicked(null);
-      setPlayerTwoCardPicked(null);
-      setValidPlayerOneSelection(false);
-      setValidPlayerTwoSelection(false);
-    }
+    battle(
+      validPlayerOneSelection,
+      validPlayerTwoSelection,
+      stat,
+      playerOneCardPicked,
+      playerTwoCardPicked,
+      setscorePlayerOne,
+      setscorePlayerTwo,
+      setPlayerOneCardPicked,
+      setPlayerTwoCardPicked,
+      setValidPlayerOneSelection,
+      setValidPlayerTwoSelection
+    );
   }, [playerOneCardPicked && playerTwoCardPicked]);
 
   if (playerOneDeck.length === 0 && playerTwoDeck.length === 0) {
-    if (scorePlayerOne > scorePlayerTwo) {
-      setWinner(player1);
-    } else if (scorePlayerOne < scorePlayerTwo) {
-      setWinner(player2);
-    } else {
-      setWinner("Draw");
-    }
+    setTimeout(() => {
+      if (scorePlayerOne > scorePlayerTwo) {
+        setWinner(player1);
+      } else if (scorePlayerOne < scorePlayerTwo) {
+        setWinner(player2);
+      } else {
+        setWinner("Draw");
+      }
+    }, 2000);
   }
 
   return (

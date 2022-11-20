@@ -6,19 +6,28 @@ function RulesTab() {
       <h3 className="w-screen text-center text-[#54EB75]">
         {"règles".toUpperCase()}
       </h3>
-      <p className="w-5/6 text-center text-white overflow-y-auto">
-        Début de partie : DRAFT PICK : Le 1er joueur à commencer le draft est
-        tiré au sort Le jeu propose 3 cartes, le 1er joueur pourra choisir la
-        PREMIERE carte, les deux restantes iront directement dans le deck du
-        2éme joueur. (Le draft continue alors jusqu'à ce que chaque joueur aient
-        6 cartes). La partie commence : Une stat est choisi aléatoirement par le
-        jeu et annoncé au début de la partie Chaque joueur choisit son héros
-        pour le placer sur le board, si la force des héros est équivalente une
-        autre stat est choisi par le jeu et celle ci sera prise en compte pour
-        la victoire la carte du joueur victorieux reste sur le board. La partie
-        se termine quand un des joueurs n’a plus de cartes. Le joueur peut
-        choisir quel stats supprimer à l'adversaire et vice-versa
-      </p>
+      <section className="w-5/6 overflow-y-auto flex flex-col bg-green-800 rounded-xl md:w-1/2 text-green-300 p-2">
+        <p className="text-center">Le jeu se déroule en deux phases :</p>
+        <br />
+        <p className="text-yellow-500 text-left underline">DRAFT PICK :</p>
+        <br />
+        Le joueur 1 commence la Draft, le jeu propose 3 cartes, le joueur pourra
+        choisir une carte, les deux autres iront directement dans le deck du
+        joueur adverse. <br />
+        La draft continue alors jusqu'à ce que chaque joueur ait 6 cartes.
+        <br />
+        <br />
+        <p className="text-yellow-500 text-left underline">COMBAT MODE:</p>
+        <br />
+        Une stat est choisie aléatoirement par le jeu et annoncé au début de la
+        partie.
+        <br />
+        Chaque joueur choisit son héros pour le placer sur le board, si la stat
+        est équivalente pour les deux personnages aucun des joueurs ne gagne de
+        points autrement le personnage avec la stat dont la valeur est la plus
+        élevée donne 1 point au joueur. La partie se termine quand les 2 joueurs
+        n’ont plus de cartes.
+      </section>
     </>
   );
 }

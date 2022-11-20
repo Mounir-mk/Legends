@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// eslint-disable-next-line import/no-unresolved
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import PropTypes from "prop-types";
 import MiniCardHover from "./MiniCardHover";

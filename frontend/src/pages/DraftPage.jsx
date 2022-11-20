@@ -11,7 +11,7 @@ const ids = [
   550, 570, 472, 655, 278, 708, 136, 230, 457, 70, 38, 95, 31, 93,
 ];
 
-let validIds = null;
+let validIds;
 
 export default function DraftPage({
   draftRound,
