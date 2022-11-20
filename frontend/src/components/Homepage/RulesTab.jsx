@@ -2,7 +2,7 @@ import React from "react";
 
 function RulesTab() {
   return (
-    <div className="w-screen h-1/3 flex flex-col justify-between items-center">
+    <>
       <h3 className="w-screen text-center text-[#54EB75]">
         {"règles".toUpperCase()}
       </h3>
@@ -19,7 +19,7 @@ function RulesTab() {
         se termine quand un des joueurs n’a plus de cartes. Le joueur peut
         choisir quel stats supprimer à l'adversaire et vice-versa
       </p>
-    </div>
+    </>
   );
 }
 

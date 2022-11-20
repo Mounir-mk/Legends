@@ -1,4 +1,5 @@
 import React from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import PropTypes from "prop-types";
 import Card from "../Global/Card";
 import Deck from "../Global/Deck";
@@ -16,11 +17,17 @@ export default function PlayersSelection({
   player1,
   player2,
 }) {
+  const [parent] = useAutoAnimate();
   return (
     <main className="flex flex-col h-screen justify-between items-center">
-      <Deck deck={playerTwoDeck} position="top" player={player2} />
+      <div ref={parent} className="h-[20%] xl:w-1/2">
+        <Deck deck={playerTwoDeck} position="top" player={player2} />
+      </div>
 
-      <section className="Container flex items-center w-screen overflow-x-scroll h-full md:justify-center md:overflow-hidden gap-6">
+      <section
+        ref={parent}
+        className="Container flex items-center w-screen overflow-x-scroll h-full md:justify-center md:overflow-hidden gap-6"
+      >
         {characters.map((character) => (
           <Card
             draftRound={draftRound}
@@ -49,7 +56,9 @@ export default function PlayersSelection({
           />
         ))}
       </section>
-      <Deck deck={playerOneDeck} position="bot" player={player1} />
+      <div ref={parent} className="h-[20%] xl:w-1/2">
+        <Deck deck={playerOneDeck} position="bot" player={player1} />
+      </div>
     </main>
   );
 }

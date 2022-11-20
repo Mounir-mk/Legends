@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import MiniCard from "./MiniCard";
 import { cardArrayPropTypes } from "../cardPropTypes";
 import up from "../../assets/up.png";
@@ -15,22 +16,23 @@ function Deck({
   player,
   setValidPlayerSelection,
 }) {
+  const [parent] = useAutoAnimate();
   const [showStats, setShowStats] = useState(false);
   const style =
     deck.length === 0
       ? "hidden"
       : "button-style absolute bg-green-500 text-white h-16 flex justify-center items-center rounded-lg w-8";
   const buttonTop = `${style} top-full right-0`;
-  const buttonBottom = `${style} bottom-full left-4 transform -translate-x-1/2`;
+  const buttonBottom = `${style} bottom-full left-0 transform -translate-x-1/2`;
   const nestedCondTop = showStats ? up : down;
   const nestedCondBottom = showStats ? down : up;
   return (
-    <div className="h-[20%] xl:w-1/2">
+    <>
       {position === "bot" && (
         <h2 className="flex justify-center items-end h-[10%] w-full text-[#54EB75]">{`${player}'s Deck`}</h2>
       )}
 
-      <div className="grid grid-cols-6 h-[90%] w-full relative">
+      <div ref={parent} className="grid grid-cols-6 h-[90%] w-full relative">
         {deck.map((deckCard) => (
           <MiniCard
             dataDeck={deckCard}
@@ -61,7 +63,7 @@ function Deck({
       {position === "top" && (
         <h2 className="flex justify-center items-start h-[10%] text-[#54EB75]">{`${player}'s Deck`}</h2>
       )}
-    </div>
+    </>
   );
 }
 

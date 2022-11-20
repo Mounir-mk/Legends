@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import PropTypes from "prop-types";
 import MiniCardHover from "./MiniCardHover";
 import { cardPropTypes } from "../cardPropTypes";
@@ -10,10 +11,13 @@ export default function MiniCard({
   position,
   showStats,
 }) {
+  const [parent] = useAutoAnimate();
   const [showStatsHover, setShowStatsHover] = useState(false);
   const {
     image: { url },
   } = dataDeck;
+  const container =
+    "bg-black z-20 absolute w-full grid grid-cols-2 rounded-lg text-center text-[#54EB75]";
   return (
     <div className="h-full w-full flex items-center justify-center">
       <button
@@ -27,9 +31,17 @@ export default function MiniCard({
           onMouseLeave={() => setShowStatsHover((prev) => !prev)}
         >
           <img src={url} className="rounded-[10%]" alt="MiniCard" />
-          {(showStats || showStatsHover) && (
-            <MiniCardHover dataDeck={dataDeck} position={position} />
-          )}
+          <div
+            ref={parent}
+            className={`
+        ${container} 
+        ${position === "bot" && "bottom-[110%]"}
+        ${position === "top" && "top-[110%]"}`}
+          >
+            {(showStats || showStatsHover) && (
+              <MiniCardHover dataDeck={dataDeck} position={position} />
+            )}
+          </div>
         </figure>
       </button>
     </div>

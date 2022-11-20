@@ -1,5 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
+// eslint-disable-next-line import/no-unresolved
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import DraftPage from "./pages/DraftPage";
 import HomePage from "./pages/Homepage";
 import CombatPage from "./pages/CombatPage";
@@ -11,11 +13,12 @@ export default function App() {
   const [draftRound, setDraftRound] = useState(1);
   const [playerOneDeck, setPlayerOneDeck] = useState([]);
   const [playerTwoDeck, setPlayerTwoDeck] = useState([]);
+  const [parent] = useAutoAnimate();
   const play = () => {
     setActivePage("draftPage");
   };
   return (
-    <div className="App">
+    <div ref={parent} className="App">
       {activePage === "homepage" && (
         <HomePage
           play={play}

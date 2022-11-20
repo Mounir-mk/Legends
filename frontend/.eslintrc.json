@@ -42,9 +42,10 @@
           "@assets": "./src/assets",
           "@components": "./src/components",
           "@pages": "./src/pages",
-          "@services": "./src/services"
+          "@services": "./src/services",
+          "@formkit": "./node_modules/@formkit"
         },
-        "extensions": [".js", ".jsx"]
+        "extensions": [".js", ".jsx", ".mjs", ".d.ts"]
       }
     }
   }

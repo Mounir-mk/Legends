@@ -17,12 +17,12 @@ function CardsTab() {
     },
   };
   return (
-    <div className="w-screen flex flex-col justify-between items-center h-1/3">
+    <>
       <h3 className="w-screen text-center text-[#54EB75]">
         {"cards".toUpperCase()}
       </h3>
       <Card character={sampleCardData} cardsTab />
-    </div>
+    </>
   );
 }
 
