@@ -5,11 +5,13 @@ import Loader from "../components/Draft/Loader";
 import PlayersSelection from "../components/Draft/PlayersSelection";
 import { cardArrayPropTypes } from "../components/cardPropTypes";
 
-const validIds = [
+const ids = [
   644, 720, 306, 491, 165, 156, 267, 542, 405, 370, 284, 601, 309, 522, 731,
   105, 609, 346, 659, 332, 620, 149, 717, 106, 498, 273, 430, 414, 401, 687,
   550, 570, 472, 655, 278, 708, 136, 230, 457, 70, 38, 95, 31, 93,
-].sort(() => Math.random() - 0.5);
+];
+
+let validIds = null;
 
 export default function DraftPage({
   draftRound,
@@ -22,6 +24,10 @@ export default function DraftPage({
   player1,
   player2,
 }) {
+  useEffect(() => {
+    validIds = ids.sort(() => Math.random() - 0.5);
+  }, []);
+
   const [characters, setCharacters] = useState([]);
 
   const [isLoading, setLoading] = useState(false);
