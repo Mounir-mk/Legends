@@ -18,7 +18,10 @@ export default function App() {
     setActivePage("draftPage");
   };
   return (
-    <div ref={parent} className="App">
+    <div
+      ref={parent}
+      className={`App bg-[url('./src/assets/bg.png')] bg-no-repeat bg-center bg-cover`}
+    >
       {activePage === "homepage" && (
         <HomePage
           play={play}
