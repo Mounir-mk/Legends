@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div
       ref={parent}
-      className={`App bg-[url('./src/assets/bg.png')] bg-no-repeat bg-center bg-cover`}
+      className={`App bg-[url('http://image.noelshack.com/fichiers/2022/47/5/1669406874-bg.jpeg')] bg-no-repeat bg-center bg-cover`}
     >
       {activePage === "homepage" && (
         <HomePage
